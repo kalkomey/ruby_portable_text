@@ -1,4 +1,25 @@
-# Ruby Portable Text
+# Ruby Portable Text (Kalkomey fork)
+
+Kalkomey's fork of [beaucouplus/ruby_portable_text](https://github.com/beaucouplus/ruby_portable_text) v0.1.2. KEGS and hw-website consume it as a pinned git source:
+
+```ruby
+gem "portable_text", github: "kalkomey/ruby_portable_text", ref: "<sha>"
+```
+
+Always pin a commit SHA on `main`; don't track a branch.
+
+## Differences from upstream 0.1.2
+
+- `anchor` option on blocks, exposed through the HTML block component.
+- `listItem: "number"` renders `<ol>`; the serializer passes `list_type` so lists render as `<ul>` or `<ol>`. Upstream renders every list as bullets.
+- Links get the `hw-link` class. `blank` on a link mark def controls `target="_blank"` with `rel="noopener noreferrer"`: `nil` falls back to `PortableText::Html::Url.external?`, `false` forces same tab, and `#fragment` links never open a new tab.
+- `activesupport` is loosened from `~> 7.2` to `>= 7.2` for Rails 8 (see upstream PR #9).
+
+Not upstreamed: the `hw-link` class is Kalkomey-specific.
+
+---
+
+# Upstream README
 
 A ruby library to render [Portable text](https://www.sanity.io/docs/presenting-block-text)
 
