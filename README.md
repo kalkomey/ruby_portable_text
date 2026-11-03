@@ -3,10 +3,10 @@
 Kalkomey's fork of [beaucouplus/ruby_portable_text](https://github.com/beaucouplus/ruby_portable_text) v0.1.2. KEGS and hw-website consume it as a pinned git source:
 
 ```ruby
-gem "portable_text", github: "kalkomey/ruby_portable_text", ref: "<sha>"
+gem "portable_text", github: "kalkomey/ruby_portable_text"
 ```
 
-Always pin a commit SHA on `main`; don't track a branch.
+Omit `ref:` (the app's `Gemfile.lock` pins the revision) and run `bundle update portable_text` to pick up fork changes.
 
 ## Differences from upstream 0.1.2
 
